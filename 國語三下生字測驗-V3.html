@@ -1,0 +1,1146 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>國小三下國語｜康軒版 第7-12課 生字語詞測驗</title>
+<script>
+/* ── 全局除錯層：必須放在第一個 script 區塊，不跟主程式混在一起 ── */
+window.onerror=function(msg,src,line,col){
+  var el=document.getElementById('_dbg');
+  if(!el){el=document.createElement('div');el.id='_dbg_early';el.style.cssText='position:fixed;top:0;left:0;right:0;background:#cc0000;color:#fff;font-size:13px;padding:8px 10px;z-index:99999;word-break:break-all;white-space:pre-wrap;max-height:35vh;overflow-y:auto;font-family:monospace;box-sizing:border-box;border-bottom:2px solid #ff6666';document.body?document.body.appendChild(el):document.documentElement.appendChild(el);}
+  el.style.display='block';el.textContent+='[JS ERR] '+msg+' (line:'+line+' col:'+col+')\n';
+  return false;
+};
+</script>
+<style>
+  :root {
+    --bg: #f5f0eb;
+    --card-bg: #fff;
+    --shadow: 0 4px 16px rgba(0,0,0,.08);
+    --radius: 14px;
+    --font: "Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    --lesson-color: #e88d67;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);background:var(--bg);color:#222;min-height:100vh;font-size:18px;line-height:1.8}
+  .site-header{background:linear-gradient(135deg,#ff9a56 0%,#ff6f91 50%,#a855f7 100%);color:#fff;text-align:center;padding:28px 16px 18px}
+  .site-header h1{font-size:2.2rem;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .site-header p{font-size:1.15rem;margin-top:6px;opacity:.9}
+  .tab-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:16px 12px 8px;max-width:900px;margin:0 auto}
+  .tab-btn{border:none;border-radius:30px;padding:12px 24px;font-size:1.15rem;font-weight:700;cursor:pointer;transition:all .25s;font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,.08);background:#fff;color:#444;margin:4px}
+  .tab-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.13)}
+  .tab-btn.active{color:#fff;transform:translateY(-2px)}
+  .tab-btn[data-lesson="7"].active{background:#f472b6}
+  .tab-btn[data-lesson="8"].active{background:#38bdf8}
+  .tab-btn[data-lesson="9"].active{background:#4ade80}
+  .tab-btn[data-lesson="10"].active{background:#facc15;color:#333}
+  .tab-btn[data-lesson="11"].active{background:#fb923c}
+  .tab-btn[data-lesson="12"].active{background:#c084fc}
+  .tab-btn[data-lesson="idiom"].active{background:linear-gradient(135deg,#f472b6,#a855f7);color:#fff}
+  .tab-btn[data-lesson="idiomQuiz"].active{background:linear-gradient(135deg,#38bdf8,#4ade80);color:#fff}
+  .page{display:none;max-width:960px;margin:0 auto;padding:0 16px 40px}
+  .page.active{display:block;-webkit-animation:fadeUp .35s ease;animation:fadeUp .35s ease}
+  @-webkit-keyframes fadeUp{from{opacity:0;-webkit-transform:translateY(12px)}to{opacity:1;-webkit-transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .lesson-banner{text-align:center;margin:18px 0 10px;padding:20px;border-radius:var(--radius);color:#fff;font-size:1.15rem;line-height:1.8}
+  .lesson-banner h2{font-size:1.6rem;margin-bottom:6px}
+  .section-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:14px 0}
+  .sec-btn{border:2px solid var(--lesson-color);border-radius:24px;padding:10px 18px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:var(--font);background:#fff;color:var(--lesson-color);margin:3px}
+  .sec-btn.active,.sec-btn:hover{background:var(--lesson-color);color:#fff}
+  .section{display:none}
+  .section.active{display:block;-webkit-animation:fadeUp .3s ease;animation:fadeUp .3s ease}
+  .char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px;margin-top:12px}
+  .char-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;padding:18px 8px 14px;transition:transform .2s,box-shadow .2s}
+  .char-card:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+  .char-card .big{font-size:3.2rem;line-height:1.1}
+  .char-card .zhuyin{display:inline-block;margin-top:6px;padding:4px 12px;border-radius:12px;font-size:1.1rem;font-weight:700;letter-spacing:2px}
+  .char-card .char-def{font-size:1rem;color:#555;margin-top:8px;line-height:1.6}
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:12px}
+  .vocab-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;border-left:5px solid var(--lesson-color);transition:transform .2s}
+  .vocab-card:hover{transform:translateY(-3px)}
+  .vocab-card .word{font-size:1.7rem;font-weight:700}
+  .vocab-card .meaning{font-size:1.05rem;color:#444;margin-top:8px;line-height:1.7}
+  .quiz-area{margin-top:12px}
+  .quiz-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 20px;margin-bottom:16px}
+  .quiz-card .q-num{display:inline-block;border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-weight:700;color:#fff;margin-right:10px;font-size:1rem}
+  .quiz-card .q-text{font-size:1.3rem;font-weight:600;line-height:2}
+  .quiz-card .q-hint{font-size:1.05rem;color:#666;margin-top:6px}
+  .zy-tag{display:inline-block;padding:4px 14px;border-radius:14px;font-size:1.05rem;font-weight:700;letter-spacing:2px;margin-top:8px}
+  .fill-row{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .fill-input{height:54px;font-size:1.8rem;font-weight:700;text-align:center;border:3px solid #ccc;border-radius:12px;outline:none;font-family:var(--font);transition:border-color .2s;background:#fafafa;margin:5px 5px 5px 0}
+  .fill-input:focus{border-color:var(--lesson-color);background:#fff}
+  .fill-input.correct{border-color:#22c55e!important;background:#dcfce7!important;color:#15803d!important}
+  .fill-input.wrong{border-color:#ef4444!important;background:#fee2e2!important;color:#b91c1c!important}
+  .fill-input:disabled{opacity:1}
+  .submit-btn{height:54px;padding:0 28px;font-size:1.1rem;font-weight:700;border:none;border-radius:12px;cursor:pointer;font-family:var(--font);color:#fff;transition:transform .15s,opacity .2s}
+  .submit-btn:hover{transform:scale(1.05)}
+  .submit-btn:disabled{opacity:.4;cursor:default;transform:none}
+  .q-result{margin-top:10px;padding:12px 16px;border-radius:10px;font-size:1.05rem;display:none;line-height:1.8}
+  .q-result.show{display:block;-webkit-animation:fadeUp .25s ease;animation:fadeUp .25s ease}
+  .q-result.right{background:#dcfce7;color:#166534}
+  .q-result.fail{background:#fee2e2;color:#991b1b}
+  .blank-box{display:inline-flex;gap:12px;margin:0 6px;vertical-align:middle}
+  .zy-unit{display:inline-block;border-bottom:4px solid;text-align:center;font-size:1.05em;line-height:1.7;font-weight:700;padding:4px 12px;letter-spacing:2px;color:var(--lesson-color,#e88d67);margin:0 6px}
+  .score-bar{text-align:center;margin:18px 0 6px;padding:18px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow);font-size:1.2rem;font-weight:700}
+  .score-bar .score-num{font-size:2rem}
+  .reset-btn{display:inline-block;margin-top:10px;border:none;border-radius:24px;padding:10px 32px;font-size:1.1rem;font-weight:700;cursor:pointer;color:#fff;font-family:var(--font);transition:transform .2s}
+  .reset-btn:hover{transform:scale(1.05)}
+  .idiom-section{max-width:960px;margin:0 auto;padding:0 16px 40px}
+  .idiom-group-title{font-size:1.2rem;font-weight:700;color:#444;margin:24px 0 10px;padding:14px 18px;background:linear-gradient(90deg,#fce7f3,#f3e8ff);border-radius:var(--radius);line-height:1.8}
+  .idiom-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:14px;border-left:5px solid #a855f7;transition:transform .2s;display:flex;gap:16px;align-items:flex-start}
+  .idiom-card:hover{transform:translateY(-3px)}
+  .idiom-card .idiom-emoji{font-size:2.6rem;line-height:1.2;flex-shrink:0;width:80px;text-align:center}
+  .idiom-card .idiom-body{flex:1}
+  .idiom-card .idiom-name{font-size:1.8rem;font-weight:700;color:#a855f7}
+  .idiom-card .idiom-def{font-size:1.15rem;color:#333;margin-top:8px;line-height:1.8}
+  .idiom-card .idiom-illus{font-size:1.05rem;color:#555;margin-top:10px;padding:12px 16px;background:#faf5ff;border-radius:10px;line-height:1.8;border:1px dashed #d8b4fe}
+  .idiom-quiz-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 20px;margin-bottom:16px}
+  .idiom-quiz-card .iq-num{display:inline-block;border-radius:50%;width:34px;height:34px;line-height:34px;text-align:center;font-weight:700;color:#fff;margin-right:10px;font-size:1rem;background:linear-gradient(135deg,#38bdf8,#4ade80)}
+  .idiom-quiz-card .iq-text{font-size:1.3rem;font-weight:600;line-height:2.2}
+  .idiom-select{height:50px;font-size:1.2rem;font-weight:700;border:3px solid #ccc;border-radius:12px;padding:0 16px;font-family:var(--font);background:#fafafa;cursor:pointer;outline:none;transition:border-color .2s;min-width:180px;color:#333}
+  .idiom-select:focus{border-color:#a855f7}
+  .idiom-select.correct{border-color:#22c55e!important;background:#dcfce7!important;color:#15803d!important}
+  .idiom-select.wrong{border-color:#ef4444!important;background:#fee2e2!important;color:#b91c1c!important}
+  .iq-result{margin-top:8px;padding:10px 16px;border-radius:10px;font-size:1.05rem;display:none;line-height:1.8}
+  .iq-result.show{display:block;-webkit-animation:fadeUp .25s ease;animation:fadeUp .25s ease}
+  .iq-result.right{background:#dcfce7;color:#166534}
+  .iq-result.fail{background:#fee2e2;color:#991b1b}
+  .iq-submit-bar{text-align:center;margin:20px 0}
+  .iq-submit-btn{border:none;border-radius:30px;padding:16px 52px;font-size:1.25rem;font-weight:700;cursor:pointer;font-family:var(--font);color:#fff;background:linear-gradient(135deg,#38bdf8,#4ade80);box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .2s}
+  .iq-submit-btn:hover{transform:scale(1.05)}
+  .iq-submit-btn:disabled{opacity:.4;cursor:default;transform:none}
+  @media(max-width:600px){
+    .site-header h1{font-size:1.4rem}
+    .tab-btn{padding:8px 14px;font-size:.92rem}
+    .sec-btn{padding:6px 10px;font-size:.82rem}
+    .char-grid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:10px}
+    .vocab-grid{grid-template-columns:1fr}
+    .char-card .big{font-size:2.4rem}
+    .fill-input{height:42px;font-size:1.3rem}
+  }
+  /* ── 全對解鎖對話框 ── */
+  #perfect-dialog{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:8888;justify-content:center;align-items:center}
+  #perfect-dialog.active{display:flex}
+  .perfect-box{background:#111;border:4px solid #FFFF00;border-radius:20px;padding:36px 40px;text-align:center;max-width:480px;width:90%;font-family:var(--font)}
+  .perfect-yes{padding:16px 32px;font-size:1.3rem;font-weight:700;cursor:pointer;border:3px solid #FFFF00;border-radius:14px;background:#FFFF00;color:#000;margin:8px;font-family:var(--font)}
+  .perfect-no{padding:16px 32px;font-size:1.3rem;font-weight:700;cursor:pointer;border:3px solid #888;border-radius:14px;background:#333;color:#fff;margin:8px;font-family:var(--font)}
+  /* ── 遊戲覆蓋層 ── */
+  #gm-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;overflow:hidden}
+  #gm-overlay.active{display:flex}
+  #gm-exit-btn{position:fixed;top:12px;right:16px;z-index:10001;background:#ff4444;color:#fff;border:none;border-radius:10px;padding:10px 18px;font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font);letter-spacing:1px}
+  #gm-exit-btn:hover{background:#cc0000}
+  #game-container{position:relative;width:400px;height:720px;display:flex;flex-direction:column}
+  #game-container canvas{border:5px solid #FFFF00;background:#001a33;display:block;flex-shrink:0}
+  #game-container .overlay{position:absolute;top:0;left:0;width:400px;height:600px;background:rgba(0,0,0,.95);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:100;color:#FFFF00;text-align:center;border:5px solid #FFFF00;box-sizing:border-box;padding:20px}
+  .big-btn{padding:15px;font-size:24px;cursor:pointer;border:3px solid #FFF;border-radius:12px;background:#FFFF00;color:#000;font-weight:bold;width:280px;margin:10px;font-family:var(--font)}
+  .desc-text{font-size:16px;color:#FFF;text-align:left;line-height:1.5;margin-bottom:20px;width:100%}
+  .touch-controls{width:400px;height:120px;display:flex;justify-content:space-between;align-items:center;background:#111;padding:0 10px;box-sizing:border-box}
+  .touch-btn{width:180px;height:90px;background:#333;border:4px solid #FFFF00;border-radius:15px;display:flex;justify-content:center;align-items:center;font-size:45px;color:#FFFF00;user-select:none;touch-action:none}
+  .touch-btn.active{background:#FFFF00;color:#000}
+  .score-info{position:absolute;top:20px;left:20px;font-size:28px;font-weight:bold;color:#FFFF00;z-index:5;text-shadow:2px 2px #000}
+  /* ── iOS WebKit 相容補強 ── */
+  html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+  body{-webkit-overflow-scrolling:touch}
+  .page{-webkit-overflow-scrolling:touch;overflow-y:auto}
+  .tab-bar,.section-tabs{-webkit-overflow-scrolling:touch}
+  .idiom-section{-webkit-overflow-scrolling:touch}
+  #gm-overlay{-webkit-overflow-scrolling:touch;overflow-y:auto}
+  #game-container .overlay{-webkit-overflow-scrolling:touch;overflow-y:auto}
+  input,select,button{-webkit-appearance:none;border-radius:0}
+  .fill-input,.idiom-select{-webkit-appearance:none;border-radius:12px}
+  /* ── Debug Layer ── */
+  #_dbg{display:none;position:fixed;top:0;left:0;right:0;background:#cc0000;color:#fff;font-size:13px;padding:8px 10px;z-index:99999;word-break:break-all;white-space:pre-wrap;max-height:35vh;overflow-y:auto;font-family:monospace;box-sizing:border-box;border-bottom:2px solid #ff6666}
+</style>
+</head>
+<body>
+<div id="_dbg"></div>
+<header class="site-header">
+  <h1>📖 國小三下國語 生字語詞測驗</h1>
+  <p>康軒版 第 7 ～ 12 課</p>
+</header>
+<nav class="tab-bar" id="tabBar"></nav>
+<main id="mainContent"></main>
+<script>
+var LESSONS={
+7:{
+  title:"油桐花．五月雪",emoji:"🌸",color:"#ec4899",colorLight:"#fce7f3",
+  desc:"每年五月，油桐花盛開，花瓣飄落如白雪，鋪滿大地，形成臺灣山林最美的五月雪。",
+  chars:[
+    {ch:"掌",zy:"ㄓㄤˇ",def:"手的內側面；掌握",s:"他用手＿拍了拍桌子。"},
+    {ch:"肩",zy:"ㄐㄧㄢ",def:"脖子和手臂之間的部位",s:"爸爸的＿膀好寬厚。"},
+    {ch:"禮",zy:"ㄌㄧˇ",def:"表示敬意的儀式或物品",s:"生日那天收到好多＿物。"},
+    {ch:"梢",zy:"ㄕㄠ",def:"樹枝的末端",s:"小鳥停在樹＿上唱歌。"},
+    {ch:"抬",zy:"ㄊㄞˊ",def:"舉起、提高",s:"他＿起頭看著天空。"},
+    {ch:"取",zy:"ㄑㄩˇ",def:"拿、得到",s:"請到櫃臺＿件。"},
+    {ch:"椏",zy:"ㄧㄚ",def:"樹枝分叉的地方",s:"枝＿上開滿了白色小花。"},
+    {ch:"簇",zy:"ㄘㄨˋ",def:"聚集成團",s:"樹上開了一＿白花。"},
+    {ch:"鋪",zy:"ㄆㄨ",def:"把東西攤開覆蓋",s:"落花＿滿了整條小路。"},
+    {ch:"絨",zy:"ㄖㄨㄥˊ",def:"柔軟細密的短毛",s:"這條＿毯摸起來好柔軟。"},
+    {ch:"毯",zy:"ㄊㄢˇ",def:"鋪在地上或蓋身上的織物",s:"媽媽鋪了一條＿子在地上。"}
+  ],
+  vocab:[
+    {w:"手掌",zy:"ㄕㄡˇ ㄓㄤˇ",m:"手的內側面",s:"他攤開＿，上面有一顆小石頭。"},
+    {w:"肩膀",zy:"ㄐㄧㄢ ㄅㄤˇ",m:"脖子旁邊，連接手臂的部位",s:"弟弟趴在爸爸的＿上睡著了。"},
+    {w:"禮物",zy:"ㄌㄧˇ ㄨˋ",m:"送人的物品，表達心意",s:"聖誕老公公送了一份＿給小朋友。"},
+    {w:"樹梢",zy:"ㄕㄨˋ ㄕㄠ",m:"樹枝的頂端",s:"小鳥停在＿上唱著歌。"},
+    {w:"抬頭",zy:"ㄊㄞˊ ㄊㄡˊ",m:"把頭舉起來往上看",s:"他＿一看，天上有一道彩虹。"},
+    {w:"枝椏",zy:"ㄓ ㄧㄚ",m:"樹枝分叉的地方",s:"小松鼠在＿上跳來跳去。"},
+    {w:"一簇",zy:"ㄧ ㄘㄨˋ",m:"聚集成一團的量詞",s:"路邊開了＿鮮豔的小花。"},
+    {w:"鋪滿",zy:"ㄆㄨ ㄇㄢˇ",m:"佈滿、覆蓋整個地方",s:"秋天，落葉＿了整個校園。"},
+    {w:"絨毯",zy:"ㄖㄨㄥˊ ㄊㄢˇ",m:"柔軟的毯子",s:"客廳的＿又厚又暖和。"},
+    {w:"椏枝",zy:"ㄧㄚ ㄓ",m:"從大樹枝上分出的小枝",s:"＿上掛滿了成熟的果實。"}
+  ],
+  quiz:[
+    {q:"他＿起頭，看見滿天的星星。",ans:"抬",zy:"ㄊㄞˊ",exp:"「抬」是舉起的意思。同音字：「臺」是臺灣；「颱」是颱風。"},
+    {q:"媽媽送了一份＿物給我。",ans:"禮",zy:"ㄌㄧˇ",exp:"「禮」物是送人的東西。同音字：「理」是道理；「裡」是裡面。"},
+    {q:"地上＿滿了白色的花瓣。",ans:"鋪",zy:"ㄆㄨ",exp:"「鋪」滿是覆蓋的意思。同音字：「撲」是撲向；「僕」是僕人。"},
+    {q:"樹上開了一＿白色的小花。",ans:"簇",zy:"ㄘㄨˋ",exp:"「簇」是聚集成團的量詞。同音字：「醋」是調味料；「促」是促進。"},
+    {q:"他的手＿心裡握著一顆糖果。",ans:"掌",zy:"ㄓㄤˇ",exp:"手「掌」是手的內側。同音字：「長」是長短；「漲」是漲價。"}
+  ]
+},
+8:{
+  title:"大自然的美術館",emoji:"🏖️",color:"#0ea5e9",colorLight:"#e0f2fe",
+  desc:"大自然就像一座美術館，風和水是最厲害的雕塑家，在海岸邊創造出千奇百怪的岩石造型。",
+  chars:[
+    {ch:"岬",zy:"ㄐㄧㄚˇ",def:"向海中突出的陸地",s:"我們走到海＿去看風景。"},
+    {ch:"珠",zy:"ㄓㄨ",def:"圓形的小顆粒",s:"荷葉上有一顆晶瑩的水＿。"},
+    {ch:"化",zy:"ㄏㄨㄚˋ",def:"改變、轉變",s:"岩石經過風＿變了形狀。"},
+    {ch:"豆",zy:"ㄉㄡˋ",def:"一種植物的種子",s:"媽媽用黃＿做豆漿。"},
+    {ch:"柳",zy:"ㄌㄧㄡˇ",def:"一種樹木，枝條柔軟下垂",s:"河邊的＿樹隨風搖擺。"},
+    {ch:"菇",zy:"ㄍㄨ",def:"菌類植物的通稱",s:"我最喜歡吃香＿。"},
+    {ch:"野",zy:"ㄧㄝˇ",def:"野外、不是人工種植的",s:"我們到＿外去郊遊。"},
+    {ch:"雕",zy:"ㄉㄧㄠ",def:"刻出立體形狀",s:"師傅在木頭上＿刻花紋。"},
+    {ch:"塑",zy:"ㄙㄨˋ",def:"用材料做出形狀",s:"他用黏土＿造了一隻小狗。"},
+    {ch:"斧",zy:"ㄈㄨˇ",def:"砍東西的工具",s:"伐木工人拿著＿頭砍樹。"},
+    {ch:"神",zy:"ㄕㄣˊ",def:"神明；精神；奇妙",s:"大自然真是＿奇啊！"}
+  ],
+  vocab:[
+    {w:"海岬",zy:"ㄏㄞˇ ㄐㄧㄚˇ",m:"向海中突出的陸地尖端",s:"站在＿上可以看到整片大海。"},
+    {w:"珍珠",zy:"ㄓㄣ ㄓㄨ",m:"貝類體內產生的圓形寶石",s:"她有一條漂亮的＿項鍊。"},
+    {w:"風化",zy:"ㄈㄥ ㄏㄨㄚˋ",m:"岩石受風雨侵蝕而變形",s:"這塊岩石經過＿變成了奇特的形狀。"},
+    {w:"豆腐",zy:"ㄉㄡˋ ㄈㄨˇ",m:"用黃豆製成的食品",s:"媽媽煮了一鍋好吃的＿湯。"},
+    {w:"柳條",zy:"ㄌㄧㄡˇ ㄊㄧㄠˊ",m:"柳樹柔軟下垂的枝條",s:"＿隨著微風輕輕搖擺。"},
+    {w:"香菇",zy:"ㄒㄧㄤ ㄍㄨ",m:"一種好吃的菇類",s:"這道＿雞湯好好喝。"},
+    {w:"野外",zy:"ㄧㄝˇ ㄨㄞˋ",m:"沒有建築物的自然環境",s:"我們到＿去觀察昆蟲。"},
+    {w:"雕塑",zy:"ㄉㄧㄠ ㄙㄨˋ",m:"用材料刻出立體的藝術品",s:"公園裡有一座美麗的＿作品。"},
+    {w:"鬼斧神工",zy:"ㄍㄨㄟˇ ㄈㄨˇ ㄕㄣˊ ㄍㄨㄥ",m:"形容技藝精巧，像鬼神的傑作",s:"大自然的＿真令人讚嘆。"},
+    {w:"水珠",zy:"ㄕㄨㄟˇ ㄓㄨ",m:"小小圓圓的水滴",s:"荷葉上滾動著晶瑩的＿。"}
+  ],
+  quiz:[
+    {q:"這是大自然＿奇的力量。",ans:"神",zy:"ㄕㄣˊ",exp:"「神」奇是非常奇妙的意思。同音字：「伸」是伸展；「身」是身體。"},
+    {q:"河邊有幾棵＿樹。",ans:"柳",zy:"ㄌㄧㄡˇ",exp:"「柳」樹的枝條柔軟下垂。同音字：「六」是數字6；「溜」是溜走。"},
+    {q:"這顆＿子閃閃發亮。",ans:"珠",zy:"ㄓㄨ",exp:"「珠」子是圓形的小顆粒。同音字：「豬」是動物；「蛛」是蜘蛛。"},
+    {q:"岩石經過長年風＿變了形狀。",ans:"化",zy:"ㄏㄨㄚˋ",exp:"風「化」是自然的侵蝕作用。同音字：「話」是說話；「畫」是圖畫。"},
+    {q:"山上長了許多野生的香＿。",ans:"菇",zy:"ㄍㄨ",exp:"香「菇」是一種菌類。同音字：「姑」是姑姑；「辜」是辜負。"}
+  ]
+},
+9:{
+  title:"臺灣的山椒魚",emoji:"🦎",color:"#22c55e",colorLight:"#dcfce7",
+  desc:"山椒魚是臺灣珍貴的保育類動物，牠們住在高山上陰涼潮溼的岩縫中，需要我們好好保護。",
+  chars:[
+    {ch:"伐",zy:"ㄈㄚˊ",def:"砍倒樹木",s:"過度＿木會破壞山林。"},
+    {ch:"縫",zy:"ㄈㄥˋ",def:"裂開的狹長空隙",s:"山椒魚住在岩＿中。"},
+    {ch:"敵",zy:"ㄉㄧˊ",def:"對手、仇人",s:"蛇是山椒魚的天＿。"},
+    {ch:"持",zy:"ㄔˊ",def:"保持、維持",s:"我們要＿續保護大自然。"},
+    {ch:"保",zy:"ㄅㄠˇ",def:"保護、保存",s:"大家一起＿護珍貴的動物。"},
+    {ch:"陸",zy:"ㄌㄨˋ",def:"地面、土地",s:"山椒魚可以在＿地上生活。"},
+    {ch:"液",zy:"ㄧㄝˋ",def:"流動的物質",s:"牠的身體會分泌黏＿。"},
+    {ch:"黏",zy:"ㄋㄧㄢˊ",def:"有附著力的",s:"牠身上有一層＿液。"},
+    {ch:"膚",zy:"ㄈㄨ",def:"身體的表面",s:"山椒魚的皮＿很光滑。"},
+    {ch:"產",zy:"ㄔㄢˇ",def:"生出、製造",s:"牠會在水中＿卵。"},
+    {ch:"卵",zy:"ㄌㄨㄢˇ",def:"動物的蛋",s:"青蛙在池塘裡產＿。"},
+    {ch:"避",zy:"ㄅㄧˋ",def:"躲開、閃開",s:"夏天太熱，牠到高山上＿暑。"},
+    {ch:"暑",zy:"ㄕㄨˇ",def:"炎熱的天氣",s:"夏天的＿氣讓人受不了。"}
+  ],
+  vocab:[
+    {w:"伐木",zy:"ㄈㄚˊ ㄇㄨˋ",m:"砍倒樹木",s:"＿工人在森林裡工作。"},
+    {w:"岩縫",zy:"ㄧㄢˊ ㄈㄥˋ",m:"岩石之間的細長裂縫",s:"山椒魚躲在＿裡休息。"},
+    {w:"天敵",zy:"ㄊㄧㄢ ㄉㄧˊ",m:"自然界中會吃掉牠的動物",s:"蛇是青蛙的＿。"},
+    {w:"保持",zy:"ㄅㄠˇ ㄔˊ",m:"維持原來的狀態",s:"請＿教室的整潔。"},
+    {w:"保護",zy:"ㄅㄠˇ ㄏㄨˋ",m:"照顧使不受傷害",s:"我們要＿珍貴的野生動物。"},
+    {w:"陸地",zy:"ㄌㄨˋ ㄉㄧˋ",m:"地球上有土壤的地方",s:"鯨魚不能在＿上生活。"},
+    {w:"液體",zy:"ㄧㄝˋ ㄊㄧˇ",m:"會流動的物質，如水",s:"水是一種透明的＿。"},
+    {w:"黏液",zy:"ㄋㄧㄢˊ ㄧㄝˋ",m:"黏黏的液體",s:"蝸牛爬過的地方會留下＿。"},
+    {w:"皮膚",zy:"ㄆㄧˊ ㄈㄨ",m:"身體最外面的一層",s:"嬰兒的＿好細嫩。"},
+    {w:"產卵",zy:"ㄔㄢˇ ㄌㄨㄢˇ",m:"動物生蛋",s:"海龜回到沙灘上＿。"},
+    {w:"避暑",zy:"ㄅㄧˋ ㄕㄨˇ",m:"到涼爽的地方躲避炎熱",s:"夏天我們到山上＿。"}
+  ],
+  quiz:[
+    {q:"山椒魚的皮＿很光滑。",ans:"膚",zy:"ㄈㄨ",exp:"皮「膚」是身體的表面。同音字：「夫」是丈夫；「扶」是扶持。"},
+    {q:"牠的身體會分泌＿液。",ans:"黏",zy:"ㄋㄧㄢˊ",exp:"「黏」液是有黏性的液體。同音字：「年」是年份；「念」是想念。"},
+    {q:"過度＿木會破壞山林。",ans:"伐",zy:"ㄈㄚˊ",exp:"「伐」木是砍樹。同音字：「罰」是處罰；「筏」是竹筏。"},
+    {q:"夏天太熱，牠會到高山上＿暑。",ans:"避",zy:"ㄅㄧˋ",exp:"「避」暑是躲避炎熱。同音字：「壁」是牆壁；「幣」是錢幣。"},
+    {q:"山椒魚會在水中產＿。",ans:"卵",zy:"ㄌㄨㄢˇ",exp:"產「卵」是生蛋。同音字：「亂」是混亂；「暖」是溫暖。"}
+  ]
+},
+10:{
+  title:"漁夫和金魚",emoji:"🐟",color:"#eab308",colorLight:"#fef9c3",
+  desc:"老漁夫捕到一條金魚，金魚答應滿足他的願望。但漁夫的妻子越來越貪心，最後什麼都沒有了。",
+  chars:[
+    {ch:"漁",zy:"ㄩˊ",def:"捕魚",s:"＿夫每天出海捕魚。"},
+    {ch:"夫",zy:"ㄈㄨ",def:"成年男子",s:"老＿妻倆住在海邊。"},
+    {ch:"婦",zy:"ㄈㄨˋ",def:"已婚的女子",s:"那位＿人正在市場買菜。"},
+    {ch:"拖",zy:"ㄊㄨㄛ",def:"拉著走",s:"他＿著沉重的漁網回家。"},
+    {ch:"耐",zy:"ㄋㄞˋ",def:"忍受、經得起",s:"他很有＿心地等待。"},
+    {ch:"煩",zy:"ㄈㄢˊ",def:"心情不好、厭煩",s:"妻子不停嘮叨，真讓人心＿。"},
+    {ch:"荒",zy:"ㄏㄨㄤ",def:"沒有人煙的地方",s:"那片＿地長滿了雜草。"},
+    {ch:"宮",zy:"ㄍㄨㄥ",def:"皇帝住的地方",s:"國王住在華麗的＿殿裡。"},
+    {ch:"臣",zy:"ㄔㄣˊ",def:"為皇帝做事的官員",s:"大＿們向國王行禮。"},
+    {ch:"僕",zy:"ㄆㄨˊ",def:"幫主人做事的人",s:"＿人幫主人端茶倒水。"},
+    {ch:"跪",zy:"ㄍㄨㄟˋ",def:"雙膝著地",s:"他＿在地上向母親道歉。"},
+    {ch:"皇",zy:"ㄏㄨㄤˊ",def:"最高的統治者",s:"＿帝穿著龍袍坐在寶座上。"},
+    {ch:"昏",zy:"ㄏㄨㄣ",def:"天快黑的時候",s:"黃＿時分，天空變成橘紅色。"},
+    {ch:"窄",zy:"ㄓㄞˇ",def:"寬度小",s:"這條巷子太＿了，車子過不去。"},
+    {ch:"爛",zy:"ㄌㄢˋ",def:"腐壞、破舊",s:"桌上的蘋果已經＿掉了。"}
+  ],
+  vocab:[
+    {w:"漁夫",zy:"ㄩˊ ㄈㄨ",m:"以捕魚為生的人",s:"＿划著小船到海上捕魚。"},
+    {w:"夫婦",zy:"ㄈㄨ ㄈㄨˋ",m:"丈夫和妻子",s:"這對＿感情非常好。"},
+    {w:"拖走",zy:"ㄊㄨㄛ ㄗㄡˇ",m:"拉著東西帶走",s:"工人把壞掉的機器＿了。"},
+    {w:"耐煩",zy:"ㄋㄞˋ ㄈㄢˊ",m:"能忍耐不厭煩",s:"她很＿地回答每一個問題。"},
+    {w:"荒蕪",zy:"ㄏㄨㄤ ㄨˊ",m:"土地沒有耕種，雜草叢生",s:"久沒人住的房子周圍一片＿。"},
+    {w:"王宮",zy:"ㄨㄤˊ ㄍㄨㄥ",m:"國王居住的宮殿",s:"＿裡住著國王和王后。"},
+    {w:"大臣",zy:"ㄉㄚˋ ㄔㄣˊ",m:"朝廷中的高級官員",s:"＿們一起商量國家大事。"},
+    {w:"僕人",zy:"ㄆㄨˊ ㄖㄣˊ",m:"在主人家幫忙做事的人",s:"＿恭敬地為主人開門。"},
+    {w:"跪下",zy:"ㄍㄨㄟˋ ㄒㄧㄚˋ",m:"雙腿彎曲，膝蓋著地",s:"他＿來向老師道歉。"},
+    {w:"皇帝",zy:"ㄏㄨㄤˊ ㄉㄧˋ",m:"古代國家最高統治者",s:"古代的＿擁有最高的權力。"},
+    {w:"黃昏",zy:"ㄏㄨㄤˊ ㄏㄨㄣ",m:"太陽快下山的時候",s:"＿時，夕陽把天空染成了金色。"},
+    {w:"狹窄",zy:"ㄒㄧㄚˊ ㄓㄞˇ",m:"空間很小、不寬",s:"這條路太＿了，只能走路。"}
+  ],
+  quiz:[
+    {q:"＿夫每天到海邊捕魚。",ans:"漁",zy:"ㄩˊ",exp:"「漁」夫是捕魚的人。同音字：「魚」是動物；「餘」是剩餘。"},
+    {q:"金碧輝煌的＿殿非常壯觀。",ans:"宮",zy:"ㄍㄨㄥ",exp:"「宮」殿是皇帝住的地方。同音字：「弓」是弓箭；「公」是公共。"},
+    {q:"天色漸漸＿暗下來。",ans:"昏",zy:"ㄏㄨㄣ",exp:"「昏」暗是天色變暗。同音字：「婚」是婚禮；「葷」是葷菜。"},
+    {q:"古代的＿帝住在皇宮裡。",ans:"皇",zy:"ㄏㄨㄤˊ",exp:"「皇」帝是最高統治者。同音字：「黃」是顏色；「慌」是驚慌。"},
+    {q:"他不＿煩地反覆練習。",ans:"耐",zy:"ㄋㄞˋ",exp:"「耐」煩是能忍耐。同音字：「奈」是無奈；「乃」是於是。"}
+  ]
+},
+11:{
+  title:"聰明的鼠鹿",emoji:"🦌",color:"#f97316",colorLight:"#ffedd5",
+  desc:"鼠鹿體型雖小，但非常聰明機智，靠著智慧一次又一次躲過兇猛鱷魚的追捕。",
+  chars:[
+    {ch:"逃",zy:"ㄊㄠˊ",def:"跑開、躲避",s:"小鹿拼命地＿跑。"},
+    {ch:"獵",zy:"ㄌㄧㄝˋ",def:"追捕野生動物",s:"＿人帶著狗進入森林。"},
+    {ch:"砰",zy:"ㄆㄥ",def:"形容碰撞的聲音",s:"門被風吹得＿的一聲關上了。"},
+    {ch:"慢",zy:"ㄇㄢˋ",def:"速度不快",s:"烏龜走路很＿。"},
+    {ch:"騙",zy:"ㄆㄧㄢˋ",def:"用假話欺騙人",s:"不可以說謊欺＿別人。"},
+    {ch:"假",zy:"ㄐㄧㄚˇ",def:"不是真的；如果",s:"＿如你是小鳥，想飛去哪裡？"},
+    {ch:"殼",zy:"ㄎㄜˊ",def:"堅硬的外皮",s:"烏龜有堅硬的外＿保護自己。"},
+    {ch:"鱷",zy:"ㄜˋ",def:"一種大型爬蟲動物",s:"＿魚張開了大嘴巴。"},
+    {ch:"剩",zy:"ㄕㄥˋ",def:"多出來的、留下的",s:"碗裡還＿下一些飯。"},
+    {ch:"浮",zy:"ㄈㄨˊ",def:"在水面上不沉下去",s:"木頭＿在水面上。"},
+    {ch:"睜",zy:"ㄓㄥ",def:"張開眼睛",s:"他＿大眼睛看著魔術表演。"}
+  ],
+  vocab:[
+    {w:"逃走",zy:"ㄊㄠˊ ㄗㄡˇ",m:"跑開躲避危險",s:"小兔子看到老鷹就趕快＿。"},
+    {w:"獵人",zy:"ㄌㄧㄝˋ ㄖㄣˊ",m:"以打獵為生的人",s:"＿在森林裡追蹤動物的足跡。"},
+    {w:"砰的一聲",zy:"ㄆㄥ ˙ㄉㄜ ㄧ ㄕㄥ",m:"形容突然發出很大的碰撞聲",s:"＿，氣球破掉了。"},
+    {w:"慢條斯理",zy:"ㄇㄢˋ ㄊㄧㄠˊ ㄙ ㄌㄧˇ",m:"做事不急不慢，很從容",s:"他＿地吃著早餐。"},
+    {w:"欺騙",zy:"ㄑㄧ ㄆㄧㄢˋ",m:"用不實的話或手段騙人",s:"我們不應該＿別人。"},
+    {w:"假如",zy:"ㄐㄧㄚˇ ㄖㄨˊ",m:"如果、要是",s:"＿明天下雨，運動會就延期。"},
+    {w:"外殼",zy:"ㄨㄞˋ ㄎㄜˊ",m:"物體外面堅硬的部分",s:"雞蛋的＿很容易碎。"},
+    {w:"鱷魚",zy:"ㄜˋ ㄩˊ",m:"一種兇猛的大型爬蟲類",s:"＿在河邊曬太陽。"},
+    {w:"剩下",zy:"ㄕㄥˋ ㄒㄧㄚˋ",m:"用完或去掉後還留著的",s:"蛋糕只＿最後一塊了。"},
+    {w:"浮起",zy:"ㄈㄨˊ ㄑㄧˇ",m:"從水中升到水面上",s:"皮球掉進水裡後又＿來了。"},
+    {w:"睜開",zy:"ㄓㄥ ㄎㄞ",m:"把眼睛張開",s:"早上鬧鐘一響，他就＿眼睛。"}
+  ],
+  quiz:[
+    {q:"小鹿拼命地＿跑。",ans:"逃",zy:"ㄊㄠˊ",exp:"「逃」跑是跑開躲避。同音字：「桃」是桃子；「淘」是淘氣。"},
+    {q:"＿人帶著獵狗進入森林。",ans:"獵",zy:"ㄌㄧㄝˋ",exp:"「獵」人是打獵的人。同音字：「烈」是猛烈；「列」是排列。"},
+    {q:"不可以欺＿別人。",ans:"騙",zy:"ㄆㄧㄢˋ",exp:"欺「騙」是用假話騙人。同音字：「片」是片段；「偏」是偏向。"},
+    {q:"＿如你是一隻小鳥，你想飛去哪裡？",ans:"假",zy:"ㄐㄧㄚˇ",exp:"「假」如是如果的意思。同音字：「甲」是甲乙；「岬」是海岬。"},
+    {q:"碗裡還＿下一些飯菜。",ans:"剩",zy:"ㄕㄥˋ",exp:"「剩」下是多出來的。同音字：「勝」是勝利；「聖」是聖人。"}
+  ]
+},
+12:{
+  title:"還要跌幾次",emoji:"💪",color:"#a855f7",colorLight:"#f3e8ff",
+  desc:"跌倒了不要怕，每一次跌倒都是學習的機會。只要有勇氣爬起來，就能離成功更近一步！",
+  chars:[
+    {ch:"跌",zy:"ㄉㄧㄝ",def:"身體失去平衡摔倒",s:"他不小心＿了一跤。"},
+    {ch:"幼",zy:"ㄧㄡˋ",def:"年紀小的",s:"＿兒園的小朋友在唱歌。"},
+    {ch:"教",zy:"ㄐㄧㄠˋ",def:"傳授知識的地方",s:"我們在＿室裡上課。"},
+    {ch:"室",zy:"ㄕˋ",def:"房間",s:"請保持教＿整潔。"},
+    {ch:"鼓",zy:"ㄍㄨˇ",def:"拍打；打擊樂器",s:"大家為他＿掌叫好。"},
+    {ch:"掌",zy:"ㄓㄤˇ",def:"手掌；鼓掌",s:"觀眾熱烈地拍＿。"},
+    {ch:"膝",zy:"ㄒㄧ",def:"大腿和小腿相連的關節",s:"他摔倒時＿蓋受傷了。"},
+    {ch:"蓋",zy:"ㄍㄞˋ",def:"遮蔽的東西；蓋住",s:"膝＿上貼了一塊OK繃。"},
+    {ch:"流",zy:"ㄌㄧㄡˊ",def:"液體移動；傳遞",s:"這個故事一直＿傳到現在。"},
+    {ch:"傳",zy:"ㄔㄨㄢˊ",def:"由一方交給另一方",s:"消息很快＿遍了全校。"},
+    {ch:"憤",zy:"ㄈㄣˋ",def:"生氣、不滿",s:"他非常氣＿。"},
+    {ch:"怒",zy:"ㄋㄨˋ",def:"發脾氣、生氣",s:"爸爸生氣地發＿了。"},
+    {ch:"恍",zy:"ㄏㄨㄤˇ",def:"彷彿、好像",s:"他＿然大悟，終於明白了。"},
+    {ch:"悟",zy:"ㄨˋ",def:"明白、了解",s:"經過思考，他領＿了道理。"},
+    {ch:"勇",zy:"ㄩㄥˇ",def:"勇敢、有膽量",s:"他＿敢地站出來承認錯誤。"}
+  ],
+  vocab:[
+    {w:"跌倒",zy:"ㄉㄧㄝ ㄉㄠˇ",m:"身體失去平衡摔在地上",s:"小弟弟學走路時常常＿。"},
+    {w:"幼兒",zy:"ㄧㄡˋ ㄦˊ",m:"年紀很小的小朋友",s:"＿園裡傳來小朋友的笑聲。"},
+    {w:"教室",zy:"ㄐㄧㄠˋ ㄕˋ",m:"上課的房間",s:"同學們在＿裡安靜地寫作業。"},
+    {w:"鼓掌",zy:"ㄍㄨˇ ㄓㄤˇ",m:"拍手表示讚賞",s:"表演結束後，大家熱烈地＿。"},
+    {w:"膝蓋",zy:"ㄒㄧ ㄍㄞˋ",m:"腿部彎曲的關節處",s:"他跑步時不小心擦傷了＿。"},
+    {w:"流傳",zy:"ㄌㄧㄡˊ ㄔㄨㄢˊ",m:"事情一個傳一個地散播",s:"這個故事已經＿了好幾百年。"},
+    {w:"憤怒",zy:"ㄈㄣˋ ㄋㄨˋ",m:"非常生氣",s:"他因為被冤枉而感到＿。"},
+    {w:"恍然大悟",zy:"ㄏㄨㄤˇ ㄖㄢˊ ㄉㄚˋ ㄨˋ",m:"突然間全部都明白了",s:"聽了老師的解釋，他才＿。"},
+    {w:"自告奮勇",zy:"ㄗˋ ㄍㄠˋ ㄈㄣˋ ㄩㄥˇ",m:"自己主動站出來承擔",s:"他＿地報名參加比賽。"}
+  ],
+  quiz:[
+    {q:"他不小心從椅子上＿倒了。",ans:"跌",zy:"ㄉㄧㄝ",exp:"「跌」倒是摔倒。同音字：「爹」是爸爸；「迭」是更迭。"},
+    {q:"＿兒園的小朋友排隊出教室。",ans:"幼",zy:"ㄧㄡˋ",exp:"「幼」兒是年紀很小的小孩。同音字：「又」是再一次；「右」是右邊。"},
+    {q:"他＿敢地站出來說話。",ans:"勇",zy:"ㄩㄥˇ",exp:"「勇」敢是有膽量。同音字：「永」是永遠；「泳」是游泳。"},
+    {q:"聽完故事後，他＿然大悟。",ans:"恍",zy:"ㄏㄨㄤˇ",exp:"「恍」然大悟是突然明白。同音字：「晃」是搖晃；「謊」是說謊。"},
+    {q:"全場觀眾＿掌叫好。",ans:"鼓",zy:"ㄍㄨˇ",exp:"「鼓」掌是拍手。同音字：「古」是古代；「谷」是山谷。"}
+  ]
+}
+};
+
+// ════════════════ Build UI ════════════════
+var tabBar, mainEl;
+
+function _buildLessons(){
+  Object.keys(LESSONS).forEach(function(num){
+    var L=LESSONS[num];
+    var btn=document.createElement("button");
+    btn.className="tab-btn"; btn.dataset.lesson=num;
+    btn.textContent=L.emoji+" 第"+num+"課";
+    btn.onclick=(function(n){return function(){switchLesson(n);};})(num);
+    tabBar.appendChild(btn);
+    var page=document.createElement("div");
+    page.className="page"; page.id="page-"+num;
+    page.innerHTML=buildPage(num,L);
+    mainEl.appendChild(page);
+  });
+}
+
+function buildPage(n,L){
+  return `
+  <div class="lesson-banner" style="background:linear-gradient(135deg,${L.color},${L.color}cc)">
+    <h2>${L.emoji} 第${n}課：${L.title}</h2><div>${L.desc}</div>
+  </div>
+  <div class="section-tabs">
+    <button class="sec-btn active" style="--lesson-color:${L.color};border-color:${L.color}" onclick="switchSec(${n},'chars',this)">📝 生字學習</button>
+    <button class="sec-btn" style="--lesson-color:${L.color};border-color:${L.color}" onclick="switchSec(${n},'vocab',this)">📖 語詞練習</button>
+    <button class="sec-btn" style="--lesson-color:${L.color};border-color:${L.color}" onclick="switchSec(${n},'charQuiz',this)">✏️ 生字測驗</button>
+    <button class="sec-btn" style="--lesson-color:${L.color};border-color:${L.color}" onclick="switchSec(${n},'vocabQuiz',this)">📋 語詞測驗</button>
+    <button class="sec-btn" style="--lesson-color:${L.color};border-color:${L.color}" onclick="switchSec(${n},'quiz',this)">🎯 同音字測驗</button>
+  </div>
+  <div class="section active" id="sec-${n}-chars">${buildChars(L)}</div>
+  <div class="section" id="sec-${n}-vocab">${buildVocab(L)}</div>
+  <div class="section" id="sec-${n}-charQuiz">${buildCharQuiz(n,L)}</div>
+  <div class="section" id="sec-${n}-vocabQuiz">${buildVocabQuiz(n,L)}</div>
+  <div class="section" id="sec-${n}-quiz">${buildHomophoneQuiz(n,L)}</div>`;
+}
+
+function buildChars(L){
+  return `<div class="char-grid">${L.chars.map(c=>`
+    <div class="char-card">
+      <div class="big">${c.ch}</div>
+      <div class="zhuyin" style="background:${L.colorLight};color:${L.color}">${c.zy}</div>
+      <div class="char-def">${c.def}</div>
+    </div>`).join("")}</div>`;
+}
+function buildVocab(L){
+  return `<div class="vocab-grid">${L.vocab.map(v=>`
+    <div class="vocab-card" style="border-left-color:${L.color}">
+      <div class="word">${v.w}</div>
+      <div class="meaning">${v.m}</div>
+    </div>`).join("")}</div>`;
+}
+
+function zyBoxes(zy,color){
+  return `<span class="blank-box">${zy.split(' ').map(s=>`<span class="zy-unit" style="border-color:${color}">${s}</span>`).join('')}</span>`;
+}
+
+/* ── 生字測驗：完整句子 ＋ 注音提示，填入正確生字（1字） ── */
+function buildCharQuiz(n,L){
+  var items=shuffle(L.chars.map(function(c,i){return Object.assign({},c,{idx:i});}));
+  const qs=items.map((c,i)=>{
+    const display=c.s.replace("＿",zyBoxes(c.zy,L.color));
+    return `
+    <div class="quiz-card" id="cq-${n}-${i}">
+      <span class="q-num" style="background:${L.color}">${i+1}</span>
+      <span class="q-text">${display}</span>
+      <div class="fill-row">
+        <input class="fill-input" style="--lesson-color:${L.color};width:80px" maxlength="1"
+               data-ans="${c.ch}" id="cqi-${n}-${i}"
+               onkeydown="if(event.key==='Enter')checkFill('cq',${n},${i})">
+        <button class="submit-btn" style="background:${L.color}" onclick="checkFill('cq',${n},${i})">確認</button>
+      </div>
+      <div class="q-result" id="cqr-${n}-${i}"></div>
+    </div>`;
+  }).join("");
+  return `<div class="quiz-area" data-total="${items.length}" data-type="cq" data-lesson="${n}">
+    ${qs}${scoreHTML(n,"cq",L.color)}</div>`;
+}
+
+/* ── 語詞測驗：完整句子 ＋ 注音提示，填入正確語詞 ── */
+function buildVocabQuiz(n,L){
+  var items=shuffle(L.vocab.map(function(v,i){return Object.assign({},v,{idx:i});}));
+  const qs=items.map((v,i)=>{
+    const len=v.w.length;
+    const blanks="＿".repeat(len);
+    const display=v.s.replace("＿",zyBoxes(v.zy,L.color));
+    return `
+    <div class="quiz-card" id="vq-${n}-${i}">
+      <span class="q-num" style="background:${L.color}">${i+1}</span>
+      <span class="q-text">${display}</span>
+      <div class="q-hint">共 ${len} 個字</div>
+      <div class="fill-row">
+        <input class="fill-input" style="--lesson-color:${L.color};width:${Math.max(100,len*52)}px"
+               maxlength="${len+2}" data-ans="${v.w}" id="vqi-${n}-${i}"
+               onkeydown="if(event.key==='Enter')checkFill('vq',${n},${i})">
+        <button class="submit-btn" style="background:${L.color}" onclick="checkFill('vq',${n},${i})">確認</button>
+      </div>
+      <div class="q-result" id="vqr-${n}-${i}"></div>
+    </div>`;
+  }).join("");
+  return `<div class="quiz-area" data-total="${items.length}" data-type="vq" data-lesson="${n}">
+    ${qs}${scoreHTML(n,"vq",L.color)}</div>`;
+}
+
+/* ── 同音字測驗：完整句子 ＋ 注音提示，填入正確的字（1字） ── */
+function buildHomophoneQuiz(n,L){
+  const qs=L.quiz.map((q,i)=>{
+    const display=q.q.replace("＿",zyBoxes(q.zy,L.color));
+    return `
+    <div class="quiz-card" id="hq-${n}-${i}">
+      <span class="q-num" style="background:${L.color}">${i+1}</span>
+      <span class="q-text">${display}</span>
+      <div class="fill-row">
+        <input class="fill-input" style="--lesson-color:${L.color};width:80px" maxlength="1"
+               data-ans="${q.ans}" data-exp="${encodeURIComponent(q.exp)}" id="hqi-${n}-${i}"
+               onkeydown="if(event.key==='Enter')checkFill('hq',${n},${i})">
+        <button class="submit-btn" style="background:${L.color}" onclick="checkFill('hq',${n},${i})">確認</button>
+      </div>
+      <div class="q-result" id="hqr-${n}-${i}"></div>
+    </div>`;
+  }).join("");
+  return `<div class="quiz-area" data-total="${L.quiz.length}" data-type="hq" data-lesson="${n}">
+    ${qs}${scoreHTML(n,"hq",L.color)}</div>`;
+}
+
+function scoreHTML(n,type,color){
+  return `<div class="score-bar" id="score-${type}-${n}" style="display:none">
+    <div>🎉 測驗結果</div>
+    <div class="score-num" id="sn-${type}-${n}"></div>
+    <div><button class="reset-btn" style="background:${color}" onclick="resetQuiz('${type}',${n})">🔄 重新測驗</button></div>
+  </div>`;
+}
+
+function shuffle(arr){
+  var a=arr.slice(0);
+  for(var i=a.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1));
+    var t=a[i];a[i]=a[j];a[j]=t;
+  }
+  return a;
+}
+
+// ════════════════ Quiz Logic ════════════════
+var state={};
+function gs(t,n){const k=`${t}-${n}`;if(!state[k])state[k]={answered:0,correct:0,done:new Set()};return state[k];}
+
+function checkFill(type,n,i){
+  const st=gs(type,n);
+  if(st.done.has(i))return;
+  const input=document.getElementById(`${type}i-${n}-${i}`);
+  const result=document.getElementById(`${type}r-${n}-${i}`);
+  const val=input.value.trim();
+  if(!val){input.focus();return;}
+  st.done.add(i); st.answered++;
+  const ans=input.dataset.ans;
+  const ok=val===ans;
+  const card=document.getElementById(`${type}-${n}-${i}`);
+  card.querySelector(".submit-btn").disabled=true;
+  input.disabled=true;
+  if(ok){
+    st.correct++;
+    input.classList.add("correct");
+    let msg="✅ 正確！好棒！";
+    if(input.dataset.exp) msg+=" "+decodeURIComponent(input.dataset.exp);
+    result.className="q-result show right";
+    result.innerHTML=msg;
+  }else{
+    input.classList.add("wrong");
+    let msg=`❌ 正確答案是「<strong>${ans}</strong>」`;
+    if(input.dataset.exp) msg+="。"+decodeURIComponent(input.dataset.exp);
+    result.className="q-result show fail";
+    result.innerHTML=msg;
+  }
+  const area=card.closest(".quiz-area");
+  const total=parseInt(area.dataset.total);
+  if(st.answered>=total){
+    const bar=document.getElementById(`score-${type}-${n}`);
+    const numEl=document.getElementById(`sn-${type}-${n}`);
+    bar.style.display="block";
+    const pct=Math.round(st.correct/total*100);
+    const e=pct===100?"🌟 滿分！太厲害了！":pct>=80?"👏 很棒！繼續加油！":pct>=60?"😊 不錯喔，再多練習！":"💪 加油，多複習一下！";
+    numEl.innerHTML=`${st.correct} / ${total}（${pct} 分）<br><small>${e}</small>`;
+    bar.scrollIntoView(true);
+  }
+}
+
+function resetQuiz(type,n){
+  state[`${type}-${n}`]={answered:0,correct:0,done:new Set()};
+  document.getElementById(`score-${type}-${n}`).style.display="none";
+  const L=LESSONS[n];
+  const secKey=type==='cq'?'charQuiz':type==='vq'?'vocabQuiz':'quiz';
+  const sec=document.getElementById(`sec-${n}-${secKey}`);
+  if(type==='cq')sec.innerHTML=buildCharQuiz(n,L);
+  else if(type==='vq')sec.innerHTML=buildVocabQuiz(n,L);
+  else sec.innerHTML=buildHomophoneQuiz(n,L);
+}
+
+// ════════════════ Idiom Data ════════════════
+var IDIOMS=[
+  {name:"禮尚往來",def:"指別人以禮相待，也要以禮回報。",group:1,
+   emoji:"🎁↔️🎁",illus:"小明送了一個禮物給小華，小華也回送一個禮物給小明。就像兩個人互相傳接球一樣，你來我往！"},
+  {name:"鬼斧神工",def:"形容大自然的雕刻技術精巧神奇，非人力所能及。",group:1,
+   emoji:"⛰️🧙‍♂️✨",illus:"想像一下：沒有人拿槌子刻，岩石卻被風和水雕成了美麗的形狀，就像神仙用魔法做出來的一樣！"},
+  {name:"孤掌難鳴",def:"比喻人孤立無助，不能成事。",group:1,
+   emoji:"👏❌",illus:"試試看，只用一隻手能拍出聲音嗎？不行對吧！一定要兩隻手一起拍才有聲音，做事也是一樣，需要大家合作！"},
+  {name:"目光如豆",def:"形容見識狹窄，目光短淺。",group:1,
+   emoji:"👁️➡️🫘",illus:"就像一個人的眼睛只能看到一顆小小的豆子，看不到遠方更大的世界。提醒我們要把眼光放遠！"},
+  {name:"慢條斯理",def:"形容說話或做事從容不迫。",group:2,
+   emoji:"🐢☕",illus:"就像烏龜一樣，慢慢走、不急不忙。想像爺爺坐在搖椅上，慢慢喝著茶，一口一口，很有耐心的樣子。"},
+  {name:"恍然大悟",def:"形容猛然領悟過來。",group:2,
+   emoji:"💡😮",illus:"就像頭上突然亮起一個燈泡！本來什麼都不懂，突然「啊！」一聲全部明白了，就是這種感覺！"},
+  {name:"自告奮勇",def:"主動要求擔任某項艱巨的任務。",group:2,
+   emoji:"✋💪",illus:"全班都不敢舉手，只有一個人勇敢把手舉得高高的說：「我來！」就像超人一樣勇敢站出來！"},
+  {name:"投機取巧",def:"利用時機、鑽漏洞來獲取利益。",group:2,
+   emoji:"🥸❌",illus:"就像考試的時候偷看別人的答案，或是走路專走捷徑。看起來很聰明，其實什麼都沒學到！"},
+  {name:"名列前茅",def:"形容成績優異，名次排在前面。",group:2,
+   emoji:"🏆🌟",illus:"想像比賽結果公布時，你的名字在最前面，旁邊還有一個金色獎盃！就是表現得特別好的意思。"}
+];
+var allNames=IDIOMS.map(function(d){return d.name;});
+
+// 45 題題庫，每個成語 5 題
+var IDIOM_BANK=[
+  // 禮尚往來 ×5
+  {s:"你送我禮物，我也送你禮物，這就是＿＿＿＿。",ans:"禮尚往來"},
+  {s:"同學請我吃點心，我也分他水果，這叫做＿＿＿＿。",ans:"禮尚往來"},
+  {s:"過年時，大家互相拜年送紅包，就是＿＿＿＿的表現。",ans:"禮尚往來"},
+  {s:"鄰居阿姨送來水果，媽媽也回送了餅乾，真是＿＿＿＿。",ans:"禮尚往來"},
+  {s:"小美幫我整理書包，我也幫她掃地，我們＿＿＿＿。",ans:"禮尚往來"},
+  // 鬼斧神工 ×5
+  {s:"這些奇形怪狀的岩石，真是＿＿＿＿的傑作。",ans:"鬼斧神工"},
+  {s:"太魯閣的峽谷好壯觀，大自然真是＿＿＿＿。",ans:"鬼斧神工"},
+  {s:"海邊的石頭被浪花刻成各種形狀，簡直是＿＿＿＿。",ans:"鬼斧神工"},
+  {s:"山上的奇石看起來像動物，讓人驚嘆＿＿＿＿。",ans:"鬼斧神工"},
+  {s:"風和水把岩石雕成美麗的樣子，真是＿＿＿＿。",ans:"鬼斧神工"},
+  // 孤掌難鳴 ×5
+  {s:"一個人做不了這麼多事，＿＿＿＿，還是找同學幫忙吧。",ans:"孤掌難鳴"},
+  {s:"打掃教室要大家一起來，＿＿＿＿，一個人是做不完的。",ans:"孤掌難鳴"},
+  {s:"拔河比賽需要全隊合作，＿＿＿＿，一個人拉不動。",ans:"孤掌難鳴"},
+  {s:"佈置園遊會要很多人，＿＿＿＿，大家一起做才快。",ans:"孤掌難鳴"},
+  {s:"完成這份作業需要討論，＿＿＿＿，我們一起想辦法。",ans:"孤掌難鳴"},
+  // 目光如豆 ×5
+  {s:"他只看到眼前的好處，真是＿＿＿＿。",ans:"目光如豆"},
+  {s:"只想到今天好玩，不想明天的考試，真是＿＿＿＿。",ans:"目光如豆"},
+  {s:"為了一顆糖果放棄整盒餅乾，真是＿＿＿＿。",ans:"目光如豆"},
+  {s:"他只在乎零用錢，不在乎學到東西，這就是＿＿＿＿。",ans:"目光如豆"},
+  {s:"只看到小小的好處就開心，卻沒想到以後，真是＿＿＿＿。",ans:"目光如豆"},
+  // 慢條斯理 ×5
+  {s:"爺爺總是＿＿＿＿，慢慢喝著茶，一點也不著急。",ans:"慢條斯理"},
+  {s:"妹妹吃飯＿＿＿＿，一口一口慢慢吃。",ans:"慢條斯理"},
+  {s:"烏龜走路＿＿＿＿，不慌不忙的。",ans:"慢條斯理"},
+  {s:"奶奶說話＿＿＿＿，聽起來好溫柔。",ans:"慢條斯理"},
+  {s:"他寫字＿＿＿＿，每一筆都寫得很工整。",ans:"慢條斯理"},
+  // 恍然大悟 ×5
+  {s:"想了好久都不懂，聽完老師說明後，他終於＿＿＿＿了。",ans:"恍然大悟"},
+  {s:"看了答案之後，我＿＿＿＿，原來是這樣啊！",ans:"恍然大悟"},
+  {s:"弟弟一直算不出來，爸爸教他以後，他＿＿＿＿。",ans:"恍然大悟"},
+  {s:"聽完故事的結局，我才＿＿＿＿，原來壞人是他。",ans:"恍然大悟"},
+  {s:"想了好幾天的謎語，今天終於＿＿＿＿了。",ans:"恍然大悟"},
+  // 自告奮勇 ×5
+  {s:"沒有人敢上臺，小明＿＿＿＿舉起手來報名。",ans:"自告奮勇"},
+  {s:"老師問誰要當班長，小華＿＿＿＿說：「我來！」",ans:"自告奮勇"},
+  {s:"大家都不敢去問路，姐姐＿＿＿＿走上前去。",ans:"自告奮勇"},
+  {s:"搬東西沒有人要幫忙，他＿＿＿＿跑過去幫忙。",ans:"自告奮勇"},
+  {s:"要選人參加比賽，小玲＿＿＿＿報了名。",ans:"自告奮勇"},
+  // 投機取巧 ×5
+  {s:"做事情要認真努力，不能＿＿＿＿。",ans:"投機取巧"},
+  {s:"考試要靠自己用功，不可以＿＿＿＿。",ans:"投機取巧"},
+  {s:"他不好好練習，只想＿＿＿＿，結果什麼都學不會。",ans:"投機取巧"},
+  {s:"寫作業要自己寫，抄別人的就是＿＿＿＿。",ans:"投機取巧"},
+  {s:"他總是想找捷徑，＿＿＿＿，最後反而更慢。",ans:"投機取巧"},
+  // 名列前茅 ×5
+  {s:"她每次考試都考得很好，＿＿＿＿，是班上的模範生。",ans:"名列前茅"},
+  {s:"哥哥很用功，每次段考都＿＿＿＿。",ans:"名列前茅"},
+  {s:"他的作文寫得好棒，比賽成績＿＿＿＿。",ans:"名列前茅"},
+  {s:"只要努力讀書，就有機會＿＿＿＿。",ans:"名列前茅"},
+  {s:"小芳跑步很快，運動會成績＿＿＿＿。",ans:"名列前茅"}
+];
+
+// 從題庫抽 9 題（每個成語最多 1 題）
+function pickIdiomQuiz(){
+  const byAns={};
+  IDIOM_BANK.forEach(q=>{
+    if(!byAns[q.ans]) byAns[q.ans]=[];
+    byAns[q.ans].push(q);
+  });
+  const picked=[];
+  Object.keys(byAns).forEach(ans=>{
+    const arr=byAns[ans];
+    picked.push(arr[Math.floor(Math.random()*arr.length)]);
+  });
+  return shuffle(picked);
+}
+
+var currentIQ=[];
+
+function renderIdiomQuiz(){
+  currentIQ=pickIdiomQuiz();
+  var opts=shuffle(allNames.slice(0)).map(function(n){return '<option value="'+n+'">'+ n+'</option>';}).join("");
+  const qHTML=currentIQ.map((q,i)=>{
+    const display=q.s.replace("＿＿＿＿",`<select class="idiom-select" id="iq-sel-${i}" data-ans="${q.ans}"><option value="">── 請選擇 ──</option>${opts}</select>`);
+    return `<div class="idiom-quiz-card" id="iq-card-${i}">
+      <span class="iq-num">${i+1}</span>
+      <span class="iq-text">${display}</span>
+      <div class="iq-result" id="iq-res-${i}"></div>
+    </div>`;
+  }).join("");
+  document.getElementById("iq-questions").innerHTML=qHTML;
+  document.getElementById("iqSubmitBtn").disabled=false;
+  document.getElementById("iq-score").style.display="none";
+  document.getElementById("iq-after-btns").style.display="none";
+}
+
+// Build idiom tabs
+function buildIdiomTabs(){
+  const btn1=document.createElement("button");
+  btn1.className="tab-btn";btn1.dataset.lesson="idiom";
+  btn1.textContent="📚 成語解說";
+  btn1.onclick=()=>switchLesson("idiom");
+  tabBar.appendChild(btn1);
+  const btn2=document.createElement("button");
+  btn2.className="tab-btn";btn2.dataset.lesson="idiomQuiz";
+  btn2.textContent="🧩 成語測驗";
+  btn2.onclick=()=>switchLesson("idiomQuiz");
+  tabBar.appendChild(btn2);
+
+  // ── 成語解說 page ──
+  const p1=document.createElement("div");
+  p1.className="page";p1.id="page-idiom";
+  const g1=IDIOMS.filter(d=>d.group===1);
+  const g2=IDIOMS.filter(d=>d.group===2);
+  p1.innerHTML=`
+    <div class="idiom-section">
+      <div class="lesson-banner" style="background:linear-gradient(135deg,#f472b6,#a855f7)">
+        <h2>📚 成語解說</h2><div>第 7～12 課 常見成語</div>
+      </div>
+      <div class="idiom-group-title">🌿 描繪自然景觀或生態行為的成語</div>
+      ${g1.map(d=>`<div class="idiom-card"><div class="idiom-emoji">${d.emoji}</div><div class="idiom-body"><div class="idiom-name">${d.name}</div><div class="idiom-def">${d.def}</div><div class="idiom-illus">🖼️ 圖解：${d.illus}</div></div></div>`).join("")}
+      <div class="idiom-group-title">📖 與待人處事或態度有關的成語</div>
+      ${g2.map(d=>`<div class="idiom-card"><div class="idiom-emoji">${d.emoji}</div><div class="idiom-body"><div class="idiom-name">${d.name}</div><div class="idiom-def">${d.def}</div><div class="idiom-illus">🖼️ 圖解：${d.illus}</div></div></div>`).join("")}
+    </div>`;
+  mainEl.appendChild(p1);
+
+  // ── 成語測驗 page ──
+  const p2=document.createElement("div");
+  p2.className="page";p2.id="page-idiomQuiz";
+  p2.innerHTML=`
+    <div class="idiom-section">
+      <div class="lesson-banner" style="background:linear-gradient(135deg,#38bdf8,#4ade80)">
+        <h2>🧩 成語測驗</h2><div>從下拉選單中選出正確的成語（每次隨機 9 題）</div>
+      </div>
+      <div id="iq-questions"></div>
+      <div class="iq-submit-bar">
+        <button class="iq-submit-btn" id="iqSubmitBtn" onclick="submitIdiomQuiz()">📝 送出批改</button>
+      </div>
+      <div class="score-bar" id="iq-score" style="display:none">
+        <div>🎉 成語測驗結果</div>
+        <div class="score-num" id="iq-score-num"></div>
+      </div>
+      <div id="iq-after-btns" style="display:none;text-align:center;margin:14px 0">
+        <button class="reset-btn" style="background:linear-gradient(135deg,#38bdf8,#4ade80);margin:0 8px" onclick="resetIdiomQuiz()">🔄 重新測驗</button>
+        <button class="reset-btn" style="background:linear-gradient(135deg,#f472b6,#a855f7);margin:0 8px" onclick="newIdiomQuiz()">🔀 更換題目</button>
+      </div>
+    </div>`;
+  mainEl.appendChild(p2);
+  renderIdiomQuiz();
+}
+
+function submitIdiomQuiz(){
+  // 檢查是否每題都已選答
+  let allAnswered=true;
+  for(let i=0;i<currentIQ.length;i++){
+    const sel=document.getElementById(`iq-sel-${i}`);
+    if(!sel.value){
+      allAnswered=false;
+      sel.style.borderColor='#ef4444';
+      sel.focus();
+      break;
+    }
+  }
+  if(!allAnswered){
+    alert('請先完成所有題目再送出批改喔！');
+    return;
+  }
+  let correct=0;
+  const total=currentIQ.length;
+  currentIQ.forEach((q,i)=>{
+    const sel=document.getElementById(`iq-sel-${i}`);
+    const res=document.getElementById(`iq-res-${i}`);
+    const val=sel.value;
+    sel.disabled=true;
+    if(val===q.ans){
+      correct++;
+      sel.classList.add("correct");
+      res.className="iq-result show right";
+      res.innerHTML="✅ 正確！";
+    }else{
+      sel.classList.add("wrong");
+      res.className="iq-result show fail";
+      res.innerHTML=`❌ 正確答案是「<strong>${q.ans}</strong>」`;
+    }
+  });
+  document.getElementById("iqSubmitBtn").disabled=true;
+  const bar=document.getElementById("iq-score");
+  const numEl=document.getElementById("iq-score-num");
+  bar.style.display="block";
+  document.getElementById("iq-after-btns").style.display="block";
+  const pct=Math.round(correct/total*100);
+  const e=pct===100?"🌟 滿分！太厲害了！":pct>=80?"👏 很棒！繼續加油！":pct>=60?"😊 不錯喔，再多練習！":"💪 加油，多複習一下！";
+  numEl.innerHTML=`${correct} / ${total}（${pct} 分）<br><small>${e}</small>`;
+  bar.scrollIntoView(true);
+  if(pct===100){ setTimeout(showPerfectDialog, 800); }
+}
+
+function resetIdiomQuiz(){
+  // 同樣題目，重新作答
+  var opts=shuffle(allNames.slice(0)).map(function(n){return '<option value="'+n+'">'+n+'</option>';}).join("");
+  currentIQ.forEach(function(q,i){
+    const sel=document.getElementById(`iq-sel-${i}`);
+    sel.disabled=false;
+    sel.classList.remove("correct","wrong");
+    sel.innerHTML='<option value="">── 請選擇 ──</option>'+opts;
+    const res=document.getElementById(`iq-res-${i}`);
+    res.className="iq-result";res.innerHTML="";
+  });
+  document.getElementById("iqSubmitBtn").disabled=false;
+  document.getElementById("iq-score").style.display="none";
+  document.getElementById("iq-after-btns").style.display="none";
+}
+
+function newIdiomQuiz(){
+  // 重新抽題
+  renderIdiomQuiz();
+  document.getElementById("page-idiomQuiz").scrollIntoView(true);
+}
+
+// ════════════════ Navigation ════════════════
+function switchLesson(num){
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelector(`.tab-btn[data-lesson="${num}"]`).classList.add("active");
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(`page-${num}`).classList.add("active");
+}
+function switchSec(num,sec,btn){
+  const page=document.getElementById(`page-${num}`);
+  page.querySelectorAll(".sec-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  page.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(`sec-${num}-${sec}`).classList.add("active");
+}
+// ════════════════ Game Dialog & Overlay ════════════════
+function showPerfectDialog(){
+  document.getElementById('perfect-dialog').style.display='flex';
+}
+function openGame(){
+  document.getElementById('perfect-dialog').style.display='none';
+  document.getElementById('gm-overlay').style.display='flex';
+  document.getElementById('gm-instruction').style.display='flex';
+  document.getElementById('gm-menu').style.display='none';
+  document.getElementById('gm-gameOverScreen').style.display='none';
+  gmStopGame();
+}
+function closeGame(){
+  gmStopGame();
+  document.getElementById('gm-overlay').style.display='none';
+}
+// ── 安全初始化：確保 DOM 就緒後再執行 ──
+function _doInit(){
+  tabBar=document.getElementById('tabBar');
+  mainEl=document.getElementById('mainContent');
+  _buildLessons();
+  buildIdiomTabs();
+  switchLesson(7);
+}
+if(document.readyState==='complete'||document.readyState==='interactive'){
+  _doInit();
+}else{
+  document.addEventListener('DOMContentLoaded',_doInit);
+}
+</script>
+<!-- ── 全對解鎖對話框 ── -->
+<div id="perfect-dialog">
+  <div class="perfect-box">
+    <div style="font-size:3.5rem;margin-bottom:12px">🎉🏆🎉</div>
+    <div style="font-size:2rem;font-weight:700;color:#FFFF00;margin-bottom:10px">成語大師！全對！</div>
+    <div style="font-size:1.2rem;color:#fff;line-height:1.8;margin-bottom:24px">
+      9 題全對，恭喜解鎖<br>「🐹 皮卡丘下樓梯」遊戲！<br>
+      <span style="color:#aaa;font-size:1rem">（遊戲結束後，需再次全對才能重玩）</span>
+    </div>
+    <div>
+      <button class="perfect-yes" onclick="openGame()">🎮 現在去玩！</button>
+      <button class="perfect-no" onclick="document.getElementById('perfect-dialog').style.display='none'">稍後再玩</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── 遊戲覆蓋層 ── -->
+<div id="gm-overlay">
+  <button id="gm-exit-btn" onclick="closeGame()">✖ 離開遊戲，回到測驗</button>
+  <div id="game-container">
+    <div class="score-info">分數: <span id="gm-score">0</span></div>
+    <div id="gm-instruction" class="overlay">
+      <h1 style="font-size:32px;margin-top:0">神之挑戰規則</h1>
+      <div class="desc-text">
+        • ⚡+5 | 🍉+3 | 🍓+1 | 💣-2<br>
+        • <span style="color:#00FFFF">50分</span>：🏹 飛箭 (-5分)<br>
+        • <span style="color:#FFFF00">100分</span>：樓梯寬度縮減 2/3<br>
+        • <span style="color:#FF6600">150分</span>：🪨 石頭 (-10分)<br>
+        • <span style="color:#FF00FF">200分</span>：<span style="color:#FF00FF;font-weight:bold">伸縮樓梯</span> (1/4~1/1)<br>
+        • <span style="color:#FF0000;font-weight:bold">負分立即結束判定！</span>
+      </div>
+      <button class="big-btn" onclick="gmShowDifficulty()">我知道了，選難度</button>
+    </div>
+    <div id="gm-menu" class="overlay" style="display:none">
+      <h1 style="font-size:32px">選擇速度</h1>
+      <button class="big-btn" onclick="gmStartGame(1.2,0.22)">低速 (慢慢玩)</button>
+      <button class="big-btn" onclick="gmStartGame(1.8,0.28)">中速 (普通人)</button>
+      <button class="big-btn" onclick="gmStartGame(2.5,0.35)">高速 (大高手)</button>
+    </div>
+    <div id="gm-gameOverScreen" class="overlay" style="display:none">
+      <div style="font-size:45px;color:#FF0000;font-weight:900">遊戲結束</div>
+      <div id="gm-finalScore" style="font-size:80px;color:#FFFF00;margin:10px 0">0</div>
+      <div id="gm-commentText" style="font-size:30px;font-weight:bold;margin-bottom:20px;line-height:1.2">評語</div>
+      <button class="big-btn" onclick="gmResetToMenu()">回到選單</button>
+      <button class="big-btn" style="background:#444;color:#fff;border-color:#888;margin-top:4px" onclick="closeGame()">離開遊戲，回到測驗</button>
+    </div>
+    <canvas id="gm-canvas" width="400" height="600"></canvas>
+    <div class="touch-controls">
+      <div class="touch-btn" id="gm-btnLeft">左 L</div>
+      <div class="touch-btn" id="gm-btnRight">右 R</div>
+    </div>
+  </div>
+  <!-- 密碼對話框（在 game-container 外，gm-overlay 內） -->
+  <div id="gm-pwd-dialog" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:10002;justify-content:center;align-items:center;flex-direction:column">
+    <div style="background:#111;border:4px solid #FFFF00;border-radius:18px;padding:32px 36px;text-align:center;min-width:300px">
+      <div style="font-size:2rem;color:#FFFF00;font-weight:700;margin-bottom:12px">🔒 輸入密碼</div>
+      <div style="font-size:1.1rem;color:#fff;margin-bottom:16px;line-height:1.7">輸入正確密碼才能回到選單<br><span style="color:#aaa;font-size:.95rem">（提示：問老師）</span></div>
+      <input id="gm-pwd-input" type="password" maxlength="10"
+        style="width:180px;height:52px;font-size:1.6rem;text-align:center;border:3px solid #FFFF00;border-radius:12px;background:#222;color:#FFFF00;outline:none;font-family:var(--font);letter-spacing:4px;margin-bottom:10px"
+        onkeydown="if(event.key==='Enter')gmConfirmPwd()">
+      <div id="gm-pwd-err" style="color:#ff4444;font-size:1.05rem;min-height:1.5em;margin-bottom:10px"></div>
+      <div style="display:flex;gap:12px;justify-content:center">
+        <button class="big-btn" style="width:130px;padding:12px;font-size:1.1rem" onclick="gmConfirmPwd()">確認</button>
+        <button class="big-btn" style="width:130px;padding:12px;font-size:1.1rem;background:#444;border-color:#888;color:#fff" onclick="document.getElementById('gm-pwd-dialog').style.display='none'">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── 遊戲引擎：合併入主程式塊，不再將介面函式挂載到 window ── */
+var gmCanvas, gmCtx, gmScoreEl, gmMenuEl, gmGameOverEl;
+var score=0, gameActive=false, timer=0;
+var currentScrollSpeed, currentGravity, player, platforms, arrows, stones;
+var normalWidth=90;
+var gmKeys={Left:false,Right:false};
+
+  function getCommentInfo(s){
+    if(s<0)return{t:"負債皮卡<br>欠債是要還的分數！",c:"#FF4444"};
+    if(s<20)return{t:"新手皮卡<br>踏出第一步！",c:"#FFFFFF"};
+    if(s<40)return{t:"入門皮卡<br>掌握基礎了！",c:"#ADFF2F"};
+    if(s<60)return{t:"熟練皮卡<br>越來越流暢！",c:"#00FF00"};
+    if(s<80)return{t:"進階皮卡<br>閃避飛箭真帥！",c:"#00FA9A"};
+    if(s<100)return{t:"資深皮卡<br>樓梯老手！",c:"#00FFFF"};
+    if(s<120)return{t:"精英皮卡<br>窄樓梯難不倒你！",c:"#1E90FF"};
+    if(s<140)return{t:"大師皮卡<br>完美掌控節奏！",c:"#4169E1"};
+    if(s<160)return{t:"傳奇皮卡<br>挑戰石頭攻擊！",c:"#9370DB"};
+    if(s<180)return{t:"幻之皮卡<br>輕易閃過巨石！",c:"#8A2BE2"};
+    if(s<200)return{t:"至尊皮卡<br>接近神之領域！",c:"#FF00FF"};
+    if(s<220)return{t:"超越者皮卡<br>伸縮樓梯之主！",c:"#FF8C00"};
+    return{t:"神之皮卡<br>樓梯的最高主宰！",c:"#FFFF00"};
+  }
+
+  function gmInitGame(sSpeed,grav){
+    score=0;timer=0;gmScoreEl.innerText="0";
+    currentScrollSpeed=sSpeed;currentGravity=grav;
+    gameActive=true;arrows=[];stones=[];
+    player={x:185,y:250,width:30,height:30,vx:0,vy:0,emoji:'\uD83D\uDC39',status:'normal',statusTimer:0};
+    platforms=[{x:155,y:320,type:'normal',width:normalWidth,baseWidth:normalWidth,item:null,shrink:false}];
+    for(var i=1;i<7;i++) gmAddPlatform(i*100+320);
+  }
+
+  function gmAddPlatform(y){
+    const isSpiky=Math.random()<0.2;
+    let baseW=isSpiky?65:normalWidth;
+    if(score>=100) baseW*=(2/3);
+    platforms.push({
+      x:Math.random()*(gmCanvas.width-baseW),
+      y:y||gmCanvas.height,
+      type:isSpiky?'spike':'normal',
+      width:baseW,baseWidth:baseW,
+      shrink:(score>=200&&!isSpiky),
+      shrinkPhase:Math.random()*Math.PI*2,
+      item:(!isSpiky&&Math.random()<0.6)?gmGetRandomItem():null
+    });
+  }
+
+  function gmGetRandomItem(){
+    const rand=Math.random();
+    if(score>=25&&rand<0.15)return{type:'💣',pts:-2};
+    if(rand<0.15)return{type:'⚡',pts:5};
+    if(rand<0.40)return{type:'🍉',pts:3};
+    return{type:'🍓',pts:1};
+  }
+
+  function gmStartGame(s,g){
+    gmMenuEl.style.display='none';gmGameOverEl.style.display='none';
+    gmInitGame(s,g);requestAnimationFrame(gmGameLoop);
+  }
+  function gmShowDifficulty(){
+    document.getElementById('gm-instruction').style.display='none';
+    gmMenuEl.style.display='flex';
+  }
+  function gmResetToMenu(){
+    // 密碼對話框
+    const dlg=document.getElementById('gm-pwd-dialog');
+    document.getElementById('gm-pwd-input').value='';
+    document.getElementById('gm-pwd-err').textContent='';
+    dlg.style.display='flex';
+    setTimeout(()=>document.getElementById('gm-pwd-input').focus(),50);
+  }
+  function gmConfirmPwd(){
+    var val=document.getElementById('gm-pwd-input').value.trim();
+    if(val==='34971'){
+      document.getElementById('gm-pwd-dialog').style.display='none';
+      gmGameOverEl.style.display='none';gmMenuEl.style.display='flex';
+    }else{
+      document.getElementById('gm-pwd-err').textContent='密碼錯誤，請再試一次！';
+      document.getElementById('gm-pwd-input').value='';
+      document.getElementById('gm-pwd-input').focus();
+    }
+  }
+
+  /* ── 事件監聽：包裙 readyState 保護 iOS 本地載入 ── */
+  function _gmBindEvents(){
+    var bL=document.getElementById('gm-btnLeft');
+    var bR=document.getElementById('gm-btnRight');
+    if(!bL||!bR){return;}
+    bL.addEventListener('pointerdown',function(e){e.preventDefault();gmKeys.Left=true;bL.classList.add('active');});
+    bR.addEventListener('pointerdown',function(e){e.preventDefault();gmKeys.Right=true;bR.classList.add('active');});
+    window.addEventListener('pointerup',function(){gmKeys.Left=false;gmKeys.Right=false;bL.classList.remove('active');bR.classList.remove('active');});
+    window.addEventListener('keydown',function(e){if(e.code==='ArrowLeft')gmKeys.Left=true;if(e.code==='ArrowRight')gmKeys.Right=true;});
+    window.addEventListener('keyup',function(e){if(e.code==='ArrowLeft')gmKeys.Left=false;if(e.code==='ArrowRight')gmKeys.Right=false;});
+  }
+  if(document.readyState==='complete'||document.readyState==='interactive'){
+    _gmBindEvents();
+  }else{
+    document.addEventListener('DOMContentLoaded',_gmBindEvents);
+  }
+
+  function gmGameLoop(){if(!gameActive)return;gmUpdate();gmDraw();requestAnimationFrame(gmGameLoop);}
+
+  function gmUpdate(){
+    timer+=0.05;
+    if(player.statusTimer>0){player.statusTimer--;if(player.statusTimer===0)player.status='normal';}
+    if(gmKeys.Left)player.vx=-6;else if(gmKeys.Right)player.vx=6;else player.vx=0;
+    player.x+=player.vx;player.vy+=currentGravity;player.y+=player.vy;
+    if(player.x<0)player.x=0;if(player.x+30>400)player.x=370;
+
+    if(score>=50&&score<150&&Math.random()<0.03){
+      var left=Math.random()>0.5;
+      arrows.push({x:left?-30:430,y:Math.random()*450+50,vx:left?5:-5,type:left?'➔':'⬅'});
+    }else if(score>=150&&Math.random()<0.04){
+      var fl=Math.random()>0.5;
+      stones.push({x:fl?0:400,y:Math.random()*150+50,vx:fl?(Math.random()*4+2):-(Math.random()*4+2),vy:-6,g:0.2});
+    }
+    arrows.forEach(function(a,i){
+      a.x+=a.vx;
+      if(Math.abs(a.x-player.x)<25&&Math.abs(a.y-player.y)<25){
+        score-=5;player.status='shocked';player.statusTimer=20;arrows.splice(i,1);
+      }
+    });
+    stones.forEach(function(s,i){
+      s.vy+=s.g;s.x+=s.vx;s.y+=s.vy;
+      if(Math.abs(s.x-player.x-15)<20&&Math.abs(s.y-player.y-15)<20){
+        score-=10;player.status='stunned';player.statusTimer=30;stones.splice(i,1);
+      }
+      if(s.y>600)stones.splice(i,1);
+    });
+    platforms.forEach(function(p,index){
+      p.y-=currentScrollSpeed;
+      if(p.shrink){var ratio=0.625+Math.sin(timer+p.shrinkPhase)*0.375;p.width=p.baseWidth*ratio;}
+      if(player.vy>0&&player.x+30>p.x&&player.x<p.x+p.width&&player.y+30>p.y&&player.y+30<p.y+15+player.vy){
+        player.y=p.y-30;player.vy=0;
+        if(p.type==='spike')gmShowGameOver("刺到了！");
+      }
+      if(p.item&&player.x+30>p.x&&player.x<p.x+p.width&&player.y+30>p.y-35&&player.y<p.y){
+        if(p.item.type==='💣'){player.status='boom';player.statusTimer=40;}
+        score+=p.item.pts;p.item=null;
+      }
+      if(p.y<-20){platforms.splice(index,1);gmAddPlatform();score++;}
+    });
+    gmScoreEl.innerText=score;
+    if(score<0)gmShowGameOver("分數破產結束！");
+    if(player.y>600||player.y<25)gmShowGameOver(player.y<25?"碰到頂部了！":"掉下去了！");
+  }
+
+  function gmShowGameOver(msg){
+    gameActive=false;
+    document.getElementById('gm-finalScore').innerText=score;
+    var info=getCommentInfo(score);
+    var cm=document.getElementById('gm-commentText');
+    cm.innerHTML=info.t;cm.style.color=info.c;
+    gmGameOverEl.style.display='flex';
+  }
+
+  function gmDraw(){
+    gmCtx.clearRect(0,0,400,600);
+    gmCtx.fillStyle="#FF5555";
+    for(var i=0;i<400;i+=20){gmCtx.beginPath();gmCtx.moveTo(i,0);gmCtx.lineTo(i+10,25);gmCtx.lineTo(i+20,0);gmCtx.fill();}
+    platforms.forEach(function(p){
+      gmCtx.fillStyle=p.type==='spike'?"#FF0000":"#FFFF00";
+      gmCtx.fillRect(p.x,p.y,p.width,15);
+      if(p.type==='spike'){
+        gmCtx.fillStyle="#FFF";
+        for(var i=0;i<p.width;i+=10){gmCtx.beginPath();gmCtx.moveTo(p.x+i,p.y);gmCtx.lineTo(p.x+i+5,p.y-8);gmCtx.lineTo(p.x+i+10,p.y);gmCtx.fill();}
+      }else if(p.item){
+        gmCtx.font="24px Arial";gmCtx.fillText(p.item.type,p.x+p.width/2-12,p.y-8);
+      }
+    });
+    arrows.forEach(function(a){gmCtx.fillStyle="#00FFFF";gmCtx.font="26px Arial";gmCtx.fillText(a.type,a.x,a.y);});
+    stones.forEach(function(s){
+      gmCtx.beginPath();gmCtx.arc(s.x+13,s.y-10,15,0,Math.PI*2);gmCtx.fillStyle="#FFFF00";gmCtx.fill();
+      gmCtx.beginPath();gmCtx.arc(s.x+13,s.y-10,11,0,Math.PI*2);gmCtx.fillStyle="#555";gmCtx.fill();
+      gmCtx.font="16px Arial";gmCtx.fillStyle="white";gmCtx.fillText("🪨",s.x+5,s.y-4);
+    });
+    var dx=player.x-5,dy=player.y+30,em=player.emoji;
+    if(player.status==='boom'){em='💥';dx+=(Math.random()-0.5)*10;dy+=(Math.random()-0.5)*10;}
+    else if(player.status==='shocked')em='😲';
+    else if(player.status==='stunned')em='😵';
+    gmCtx.font="38px Arial";gmCtx.fillText(em,dx,dy);
+  }
+  /* ── 引擎初始化：連結 DOM 元素 ── */
+  function _gmInitElements(){
+    gmCanvas=document.getElementById('gm-canvas');
+    if(!gmCanvas){return;}
+    gmCtx=gmCanvas.getContext('2d');
+    gmScoreEl=document.getElementById('gm-score');
+    gmMenuEl=document.getElementById('gm-menu');
+    gmGameOverEl=document.getElementById('gm-gameOverScreen');
+    _gmBindEvents();
+  }
+  if(document.readyState==='complete'||document.readyState==='interactive'){
+    _gmInitElements();
+  }else{
+    document.addEventListener('DOMContentLoaded',_gmInitElements);
+  }
+  function gmStopGame(){gameActive=false;}
+</script>
+</body>
+</html>
